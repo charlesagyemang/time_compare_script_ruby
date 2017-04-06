@@ -10,7 +10,6 @@ def get_month (date_time)
 end	
 
 def get_year (date_time)
-	
 	date_time.to_s[0...4]
 end	
 
@@ -69,37 +68,37 @@ def compare_dates(date_two)
 						else
 							#same everything except seconds
 							difference = (date_one_second_int - date_two_second_int).to_s
-							"#{difference} seconds ago"
+						    difference.to_i == 1? "#{difference} second ago" : "#{difference} seconds ago"
 						end	
 					else
 						#different minute all else the same
 						difference = (date_one_minute_int - date_two_minute_int).to_s
-						"#{difference} minutes ago"
+						difference.to_i == 1? "#{difference} minute ago" : "#{difference} minutes ago"
 					end	
 				else
 					#Same year same month same day not the same hour
 					difference = (date_one_hour_int - date_two_hour_int).to_s
-					"#{difference} hours ago"
+					difference.to_i == 1? "#{difference} hour ago" : "#{difference} hours ago"
 				end	
 			else
 				#same year same month but different day
-				difference = (date_one_day_int - date_two_day_int).to_s
-				"#{difference} days ago"
+				 difference = (date_one_day_int - date_two_day_int).to_s
+				 difference.to_i == 1? "#{difference} day ago": "#{difference} days ago"
 
 			end	
 		else
 			#Same year but different months
 			difference = (date_one_month_int - date_two_month_int).to_s
-			"#{difference} months ago"
+			difference.to_i == 1? "#{difference} month ago" : "#{difference} months ago"
 		end
 	else
 
 		#TODO: if the same year else statement
 		difference = (date_one_year_int - date_two_year_int).to_s
-		"#{difference} years ago"
+		difference.to_i == 1? "#{difference} year ago" : "#{difference} years ago"
 	end	
 end
 
 puts Time.now
-puts compare_dates(Time.parse("2017-04-05 10:17:28 +0000"))
+puts compare_dates(Time.parse("2014-04-06 8:16:28 +0000"))
 
